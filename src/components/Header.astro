@@ -1,5 +1,35 @@
 ---
 ---
-<div>
-Header
+
+<div x-data="{ showmenu: false }" class="p-6 fixed lg:static w-full mb-5 px-10 bg-back z-[150]" >
+<div id="navbar" class="flex flex-row justify-between">
+<div id="logo" class=" md:w-[154px]" >
+<a href="/"><img class="hidden md:block" src="/logo.png" alt="Logo"></a>
 </div>
+
+<nav id="desktopmenu" class="hidden lg:block">
+   <ul class="flex flex-row gap-4 space-x-10 text-[17px] md:mt-5">
+      <li class=""><a href="#link1">Vores arbejde</a></li>
+      <li class=""><a href="#link2">Hvad kan du gøre?</a></li>
+      <li class=""><a href="#link3">Shop</a></li>
+      <li class="border-2 border-black rounded-full p-3"><a href="#link4">Bliv medlem</a></li>
+   </ul>
+</nav>
+
+<button id="burgermenu" class="lg:hidden" x-on:click="showmenu = ! showmenu">
+<img class="w-5 " src="/bm.png" alt="Menu">
+</button>
+
+</div>
+<nav id="mobilmenu" class="flex flex-col content-center bg-groen mt-4" 
+x-show="showmenu" x-transition x-on:click="showmenu = false" x-on:click.outside="showmenu = false">
+    <ul class="font-bold">
+        <li class="text-center py-2 border-y-2"><a href="#link1">Vores arbejde</a></li>
+        <li class="text-center py-2 border-b-2"><a href="#link2">Hvad kan du gøre?</a></li>
+        <li class="text-center py-2 border-b-2"><a href="#link3">Shop</a></li>
+        <li class="text-center py-2 border-b-2"><a href="#link4">Bliv medlem</a></li>   
+    </ul>
+</nav>
+
+</div>
+
